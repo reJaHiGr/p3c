@@ -31,7 +31,8 @@ Positive example 2：
          new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
     pool.execute(()-> System.out.println(Thread.currentThread().getName()));
-    pool.shutdown();//gracefully shutdown
+    //gracefully shutdown
+    pool.shutdown();
        ]]>
         </example>
         <example>
@@ -63,7 +64,7 @@ Positive example 3：
             <![CDATA[
     //org.apache.commons.lang3.concurrent.BasicThreadFactory
     ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1,
-            new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
+        new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
     executorService.scheduleAtFixedRate(new Runnable() {
         @Override
         public void run() {
@@ -84,10 +85,10 @@ Positive example 3：
         <example>
             <![CDATA[
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-    .setNameFormat("demo-pool-%d").build();
+        .setNameFormat("demo-pool-%d").build();
     ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1,
-    0L, TimeUnit.MILLISECONDS,
-    new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+        0L, TimeUnit.MILLISECONDS,
+        new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
     singleThreadPool.execute(()-> System.out.println(Thread.currentThread().getName()));
     singleThreadPool.shutdown();
@@ -104,10 +105,10 @@ Positive example 3：
         <example>
             <![CDATA[
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-    .setNameFormat("demo-pool-%d").build();
+        .setNameFormat("demo-pool-%d").build();
     ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1,
-    0L, TimeUnit.MILLISECONDS,
-    new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+        0L, TimeUnit.MILLISECONDS,
+        new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
     singleThreadPool.execute(()-> System.out.println(Thread.currentThread().getName()));
     singleThreadPool.shutdown();
@@ -116,7 +117,7 @@ Positive example 3：
         <example>
             <![CDATA[
     public class TimerTaskThread extends Thread {
-        public TimerTaskThread(){
+        public TimerTaskThread() {
         super.setName("TimerTaskThread"); …
     }
        ]]>
@@ -134,7 +135,7 @@ Positive example 3：
             <![CDATA[
 Positive example 1：
     private static final String FORMAT = "yyyy-MM-dd HH:mm:ss";
-    public String getFormat(Date date){
+    public String getFormat(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat(FORMAT);
         return sdf.format(date);
     }
@@ -144,8 +145,8 @@ Positive example 1：
             <![CDATA[
 Positive example 2：
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public void getFormat(){
-        synchronized (sdf){
+    public void getFormat() {
+        synchronized (sdf) {
         sdf.format(new Date());
         ….;
     }
@@ -181,15 +182,15 @@ Positive example 3：
     public class UserHolder {
         private static final ThreadLocal<User> userThreadLocal = new ThreadLocal<User>();
 
-        public static void set(User user){
+        public static void set(User user) {
             userThreadLocal.set(user);
         }
 
-        public static User get(){
+        public static User get() {
             return userThreadLocal.get();
         }
 
-        public static void remove(){
+        public static void remove() {
             userThreadLocal.remove();
         }
     }
@@ -272,12 +273,12 @@ Positive example 2：
      * @date 2017/04/07
      */
     public class CountDownExample {
-        public void operate(CountDownLatch countDownLatch){
-            try{
+        public void operate(CountDownLatch countDownLatch) {
+            try {
                 System.out.println("business logic");
-            }catch (RuntimeException e){
+            } catch (RuntimeException e) {
                 // do something
-            }finally {
+            } finally {
                 countDownLatch.countDown();
             }
         }
