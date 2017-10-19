@@ -21,10 +21,10 @@
         <priority>2</priority>
         <example>
             <![CDATA[
-    abstract class BaseControllerDemo{
+    abstract class BaseControllerDemo {
     }
 
-    abstract class AbstractActionDemo{
+    abstract class AbstractActionDemo {
     }
             ]]>
         </example>
@@ -38,7 +38,7 @@
         <priority>2</priority>
         <example>
             <![CDATA[
-    public class CacheDemoException extends Exception{
+    public class CacheDemoException extends Exception {
     }
             ]]>
         </example>
@@ -101,13 +101,13 @@
         <priority>2</priority>
         <example>
             <![CDATA[
-    public interface DemoService{
+    public interface DemoService {
         void f();
     }
 
     public class DemoServiceImpl implements DemoService {
         @Override
-        public void f(){
+        public void f() {
             System.out.println("hello world");
         }
     }
@@ -136,7 +136,7 @@
         <priority>2</priority>
         <example>
             <![CDATA[
-    public class DemoDO{
+    public class DemoDO {
         Boolean success;
         Boolean delete;
     }
