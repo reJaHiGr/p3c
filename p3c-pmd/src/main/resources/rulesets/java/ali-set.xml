@@ -29,7 +29,7 @@ Positive example：
         <example>
        <![CDATA[ 
 Positive example:
-   List<String> t   = Arrays.asList("a","b","c"); 
+   List<String> t = Arrays.asList("a","b","c"); 
    //warn
    t.add("22");
    //warn
@@ -99,9 +99,9 @@ Negative example:
        <![CDATA[ 
  Positive example: 
    Iterator<Integer> it=b.iterator();		 
-   while(it.hasNext()){                      
+   while (it.hasNext()) {                      
       Integer temp =  it.next();             
-      if(delCondition){              
+      if (delCondition) {              
          it.remove();       
       } 
       
